@@ -9,6 +9,6 @@
 - name: Run logstash
   become: true
   command:
-    cmd: bin/logstash -f /etc/logstash/logstash-simple.conf
+    cmd: /usr/share/logstash/bin/logstash -f /etc/logstash/logstash-simple.conf
     chdir: /usr/share/logstash/bin
   register: logstash_modules
