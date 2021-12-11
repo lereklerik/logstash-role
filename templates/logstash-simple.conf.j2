@@ -1,0 +1,15 @@
+{% if ansible_distribution == "CentOS" %}
+output {
+  centos {
+    hosts => ["http://{{ hostvars['el-centos']['ansible_facts']['default_ipv4']['address'] }}:9200"]
+  }
+  stdout { codec => rubydebug }
+}
+{% else %}
+output {
+  elasticsearch {
+    hosts => ["http://{{ hostvars['el-ubuntu']['ansible_facts']['default_ipv4']['address'] }}:9200"]
+  }
+  stdout { codec => rubydebug }
+}
+{% endif %}
